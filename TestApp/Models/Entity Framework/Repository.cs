@@ -43,18 +43,18 @@ namespace TestApp.Models
 
         public void AddCatalog(Catalog cat)
         {
-            cat.CatalogMap = new CatalogMap() { Name = cat.Name };
+            cat.CatalogMap = new CatalogMap();
             context.Catalogs.Add(cat);
 
             foreach (Aggregate a in cat.Aggregates)
             {
-                a.AggregateMap = new AggregateMap() { Name = a.Name };
+                a.AggregateMap = new AggregateMap();
 
                 context.Aggregates.Add(a);
 
                 foreach(Model m in a.Models)
                 {
-                    m.ModelMap = new ModelMap() { Name = m.Name };
+                    m.ModelMap = new ModelMap();
 
                     context.Models.Add(m);
                 }
